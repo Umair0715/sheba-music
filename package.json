@@ -1,0 +1,35 @@
+{
+  "name": "sheba-music",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/server.js",
+    "start": "NODE_ENV=production node server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "base64-to-image": "^1.0.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "custom-id": "^1.2.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "facebook-node-sdk": "^0.2.0",
+    "fcm-node": "^1.6.1",
+    "google-auth-library": "^8.5.1",
+    "googleapis": "^107.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.1",
+    "morgan": "^1.10.0",
+    "node-deeplink": "^0.6.0",
+    "nodemailer": "^6.7.8",
+    "totp-generator": "^0.0.13",
+    "twilio": "^3.82.0"
+  }
+}

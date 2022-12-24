@@ -1,0 +1,638 @@
+======================
+    AUTHENTICATION 
+======================
+ 
+1) Register (done) 
+   Description : After done we Logged in the user and also send verification email to verify his email address with verifyEmail end point
+2) Login (done)
+3) Logout (done)
+4) Reset Password (done)
+5) Send Phone Otp (done) 
+   Description : To Verify Users phone number , if we need in future 
+6) Verify Phone Otp (done)
+7) Login With Phone (done)
+8) Login with Google (done)
+9) Login With Facebook (remaining)
+10) Login With Apple (remaining)
+
+
+==============
+    USER 
+==============
+1) Get Profile (done)
+2) Change Password (done)
+3) Update User (done)
+
+======================
+    NOTIFICATION  
+======================
+1) Create Notification
+2) Get Notifications (admin)
+
+
+===============================
+    BANNER (ADMIN ACCESS)
+===============================
+1) Create Banner (done)
+    route : /api/banner 
+    method : POST 
+    body : images : ["base64Image" , "base64Image"] ,
+    description : image should be in base64 string format.
+2) Update Banner (done)
+    route : /api/banner/:bannerId
+    method : PUT 
+    Requirement : Banner id required in params
+3) Delete Banner image (done)
+    route : /api/banner/delete-image/imageIdToDelete
+    method : DELETE
+    Requirement : image is id required in params
+4) Get Banner (done)
+    route : /api/banner 
+    method : GET 
+    NOTE: database contain only one banner in one time . If you want to create new banner you need to delete the previous banner. 
+5) Delete Banner (done)
+    route : /api/banner/bannerId
+    method : DELETE 
+    description: This route will delete the complete banner
+
+    
+========================== 
+    USER (ADMIN ACCESS) 
+==========================
+1) Get All Users (done)
+2) Get Artists list (done)
+3) Get Beat Producers list (done)
+4) Get Influencers List (done)
+5) Get Song Writers list (done)
+6) Get Guest users list (done)
+7) Get Singe User Details (done)
+    Requirement : userId in params 
+8) Delete user (done)
+    Requirement : UserId in params 
+
+===================
+    CATEGORY 
+===================
+1) Create Category (done)(Admin)
+2) Get Categories (done)(public)
+3) Update Category (done)(Admin)
+4) Delete Category (done)(Admin)
+5) Get Single Category (done)  (open Route)
+    route : /api/category/:id 
+    method : GET
+    description : category id is required in params.
+
+
+
+================
+    SONGS 
+================
+1) Create Song (done)
+    route : /api/song 
+    method : POST 
+    description : audio and image must be in base64 string format 
+    if song is free you need to send its type in license object 0,
+    if it is paid then send it's type 1
+2) Get Songs (done)
+    route : /api/song 
+    method : GET 
+    remaining : Pagination 
+3) Update Song (done)
+    route : /api/song/:id 
+    method : PUT ,
+    description : song id required in params
+4) Delete Song (done)
+    route : /api/song/:id 
+    method : DELETE 
+    description : song id required in params
+5) Get single song (done)
+    route : /api/song/:id 
+    method : GET 
+    description : song id required in params
+    
+================
+    ALBUMS 
+================
+1) Create Album (done)
+    route : /api/album
+    method : POST 
+2) Get Albums (done)
+    route : /api/album
+    method : GET 
+    remaining : Pagination
+3) Update Album (done)
+    route : /api/album/:id 
+    method : PUT 
+    description : album id required in params 
+4) Delete Album (done)
+    route : /api/album/:id 
+    method : DELETE  
+    description : album id required in params 
+5) Add Songs In Album 
+    route : /api/album/addSongs/:id 
+    method : PUT 
+    description : album id required in params , 
+    on frontend avoid user to select song which is already present in album 
+6) Get All Albums (done)(open)
+    route : /api/album 
+    method : GET 
+7) Get Single Album (done)(open)
+    route : /api/album/:id 
+    method : GET 
+    description : album id is required in params.
+    
+    
+
+================
+    PLAYLIST 
+================
+1) Create playlist (done)
+    route : /api/playlist
+    method : POST 
+2) Get playlists (done)
+    route : /api/playlist
+    method : GET 
+    remaining : Pagination
+3) Update playlist (done)
+    route : /api/playlist/:id 
+    method : PUT 
+    description : playlist id required in params 
+4) Delete playlist (done)
+    route : /api/playlist/:id 
+    method : DELETE  
+    description : playlist id required in params 
+5) Add Songs In playlist 
+    router : /api/playlist/addSongs/:id 
+    method : PUT 
+    description : playlist id required in params , 
+    on frontend avoid user to select song which is already present in playlist 
+6) Get All Playlists (done)(open Route)
+    route : /api/playlist 
+    method : GET 
+7) Get Single Playlist (done)  (open Route)
+    route : /api/playlist/:id 
+    method : GET 
+    playlist id required in params
+================
+    LICENSE 
+================
+1) Create License (done)(admin)
+    route : /api/license
+    method : POST 
+2) Get Licenses (done)
+    route : /api/license
+    method : GET 
+3) Update License (done)(admin)
+    route : /api/license/:id
+    method : PUT 
+4) Delete License (done)(admin)
+    route : /api/license/:id
+    method : DELETE 
+
+================
+    BEATS 
+================
+1) Create Beat (done)(beatProducer)
+    route : /api/beat
+    method : POST
+2) Get All Beats (done)
+    route : /api/beat
+    method : GET
+3) Update Beat (done)(beatProducer)
+    route : /api/beat/:id (beat id required in params)
+    method : PUT 
+4) Delete Beat (done)(beatProducer)
+    route : /api/beat/:id (beat id required in params)
+    method : DELETE 
+2) Get My Beats (done)
+    route : /api/beat/my
+    method : GET
+NOTE: Pagination done 
+
+================
+    TICKETS 
+================
+1) Create Ticket (done)
+    route : /api/ticket
+    method : POST
+2) Get All Tickets (done)(pagination)(open)
+    route : /api/ticket
+    method : GET
+    Description : For pagination add page as a query paramter with page number 
+    example http://domain/api/ticket?page=2 
+3) Update Ticket (done)
+    route : /api/ticket/:id (ticket id required in params)
+    method : PUT 
+4) Delete Ticket (done)
+    route : /api/ticket/:id (Ticket id required in params)
+    method : DELETE 
+5) Get My Tickets (done)(pagination)
+    route : /api/ticket/my
+    method : GET
+    Description : For pagination add page as a query paramter with page number 
+    example http://domain/api/ticket?page=2 
+6) Get Single Ticket (done) (open route)
+    route : /api/ticket/:id 
+    method : GET 
+    description : Ticket id is required in params.
+NOTE: Pagination done 
+
+
+======================
+    YOUTUBE LINKS
+======================
+1) Create Youtube Link (done)
+    route : /api/youtubeLink 
+    method : POST
+    body : {
+        "link" : "https://youtube.com/ksdjWQoskjlw"
+    }
+2) Get My Youtube Links (done)
+    router : /api/youtubeLink 
+    method : GET 
+    description : This route will return logged in user Youtube Links with pagination. Per page 10 records. 
+   
+3) Update YoutubeLink (done)
+    route : /api/youtubeLink/:id 
+    method : PUT 
+    description : id of the link you want to update required in params.
+4) Delete Youtube Link 
+    router : /api/youtubeLink/:id 
+    method: DELETE
+    description : id of the link you want to delete required in params.
+
+================
+    WALLET 
+================
+1) Create Wallet (done)
+    description : wallet will be created automatically when the user registered .
+    1.2) If in some case user wallet is not created automatically
+    there is separate end point to create user wallet (done)
+    router : /api/wallet 
+    method : POST 
+    this route will create logged in user wallet if it's not exist.
+2) Get My Wallet (done)
+    route : /api/wallet 
+    method : GET 
+    description : This route will return logged in user Wallet 
+3) Get Single User Wallet (done)
+    route : /api/wallet/:id 
+    method : GET 
+    description : This route will return Single User wallet  
+    user id is required in params whose wallet you want to get.
+    example : http://domain/api/wallet/984o38rlksjf094roj
+4) Delete Wallet (done)
+    4.1) When user deleted it's wallet also deleted.
+    4.2) Separate end point to delete user wallet also done 
+    route : /api/wallet/:id 
+    user id is required in params whose wallet you want to delete.
+    example : http://domain/api/wallet/984o38rlksjf094roj
+
+
+Wallet History , BuySong , tagInfluencer , influencer profit , 
+
+================
+    FCM 
+================
+1) Create FCM (done)
+    route : /api/fcm
+    method : POST
+2) Get My FCM token (done)
+    router : /api/fcm 
+    method : GET
+create fcm , update fcm , same route for both task if fcm exist in database then it will be updated with new one if not exist then it will be created.
+get fcm token (done)
+FCM model , send fcm token with user (login) , 
+
+=========================
+    ADMIN COMMISSION 
+=========================
+1) Create Admin Commission (done)
+    route : /api/admin-commission 
+    method : POST 
+2) Get Admin Commissions list (done)
+    route : /api/admin-commission
+    method : GET
+3) Update Admin Commission (done)
+    route : /api/admin-commission/:id 
+    method : PUT 
+    id of the commission required in params
+
+set admin commision , extract admin commission also when someone purchase something , 
+
+only for open routes/
+create api key for other users like admin ,
+
+=========================
+    SEARCH ENDPOINT 
+=========================
+route : /api/search 
+method : GET 
+search apis endpoints , user can search anything he want like songs , guest users 
+
+https://domain.com/api/search?type=artist&keyword=harry ,
+
+
+
+==========================
+    FAVOURITE ARTISTS 
+==========================
+1) Add Favourite Artists (done)
+    route : /api/favourite-artist 
+    method: POST 
+2) Get My Favourite Artists (done)
+    route : /api/favourite-artist
+    method : GET
+3) Update Favourite Artists (done)
+    route : /api/favourite-artist/:id 
+    method : PUT 
+
+======================
+    EVENT CATEGORY 
+======================
+1) Create Event Category (done)
+    route : /api/eventCategory
+    method : POST 
+2) Get Event Categories (done)(open)
+    route : /api/eventCategory
+    method : GET 
+3) Update eventCategory (done)
+    route : /api/eventCategory/:id 
+    method : PUT 
+    description : eventCategory id is required in params.
+4) Delete Event Category (done)
+    route : /api/eventCategory/:id
+    method : DELETE 
+    description : eventCategory id is required in params.
+5) Get Single Event Category (done)
+    route : /api/eventCategory/:id 
+    method : GET 
+    description : eventCategory is required in params.
+    
+
+    //album banner image change , song list update error // song delete from album
+
+
+=======================
+    New Routes 
+=======================
+1) Change User Profile Image (done)
+    route : /api/user/change-profile 
+    body :  { profileImage : base64String },
+    Method : PUT ,
+2) Change User Cover Image (done)
+    route : /api/user/change-cover
+    body : { coverImage : base64String } ,
+    Method : PUT 
+3) Delete Specific song from album (done)
+    route : /api/album/:albumId/delete-song/:songId
+    Method : DELETE 
+4) Change Album Image (done)
+    route : /api/album/change-image/:albumId 
+    Method : PUT ,
+    body : { image : base64 String }
+
+================
+    FOLLOW
+================
+1) Create Follower (done)
+    route : /api/follow
+    method : POST
+    body : {
+        userId (id of the user you want to follow.)
+    }
+2) Get My Followers (done)
+    router : /api/follow/my-followers
+    method : GET 
+    description : This route will return logged in user followers with pagination. Per page 10 records. 
+    NOTE : To get Next 10 records you need to send ?page=$pageNumber
+    example  : http://domain/api/follow?page=2
+    then it return next 10 records 
+3) Get My Followings (done)
+    router : /api/follow/my-followings
+    method : GET 
+    description : This route will return logged in user followings with pagination. Per page 10 records. 
+    NOTE : To get Next 10 records you need to send ?page=$pageNumber
+    example  : http://domain/api/follow?page=2
+    then it return next 10 records
+4) Unfollow User (done)
+    route : /api/follow/:id 
+    method : DELETE 
+    description : userId (id of the user you want to unfollow) is required in params.
+5) Get single User Followers 
+    router : /api/follow/get-followers/:userId 
+    method: GET
+    description : userId (id of the user you want to get followers)  is required in params. 
+
+5) Get single User Followings 
+    router : /api/follow/get-followings/:userId 
+    method: GET
+    description : userId (id of the user you want to get Followings)  is required in params. 
+
+
+    //comment , comment Likes , other Likes , chat , messages 
+
+====================
+    COMMENT 
+====================
+1) Create Comment (done)
+    Route : /api/comment  
+    Method : POST ,
+    body : { postId : mongoId , comment }
+2) Delete Comment (done)
+    Route : /api/comment/:commentId
+    Method : DELETE
+3) Get Single Post Comment (done) (post mean song , ticket , beat etc...)
+    Route : /api/comment/:postId 
+    method : GET 
+    //hm sb cheezon k comments ek hi model me summarize kr rhy hein chahy wo comment kisi song ka ho ya kisi beat ka ya kisi ticket , 
+    in sb cheezon ko handle hm postId sy kreingy , postId is cheez ko refer kry gi k wo comment kiska h (song ka ya ticket ya beat ka etc...)
+    simply hm isme parent referencing use kr rhy hein jisme hr child ko usk parent ka pta hoga , hmein jaha b jisk b comment chiye hongy song k ya ticket k tw hm song ya ticket ko as a post consider kreingy or uski id (postId) pass kreingy tw usk comment hmein mil jayengy
+
+====================
+    COMMENT's LIKES
+====================
+1) Create Comment Like(done)
+    Route : /api/commentLike  
+    Method : POST ,
+    body : { commentId : mongoId }
+    // this route will create  comment's like , if like already exist then it will remove this
+    // when any of the like added then we increase comments likesCount by 1 and when remove then we decrement likesCount by 1 
+
+
+==============================================
+    LIKES (Song , ticket , beat etc...)
+==============================================
+1) Create Like (done)
+    Route : /api/like
+    body : { postId : mongoId }
+    Method : POST   
+    Description : PostId concept same as comments PostId 
+    if like exist then it will remove that like 
+
+    NOTE : when someone like song or beat we are adding this song or beat into the database on the basis of postType 
+    postType = 1 means Song 
+    postType = 2 means Beat 
+
+2) Get Post Likes (done)
+    Route : /api/like/:postId 
+    Method : GET 
+    this route will return no of likes on a specific post 
+3) Get My Liked Songs (done)(pagination)
+    Route : /api/like/songs
+    Method : GET 
+4) Get My Liked Beats (done)(pagination)
+    Route : /api/like/beats 
+    Method : GET
+==============
+    CHATS
+==============
+1) Create Chat (done)
+    Route : /api/chat 
+    Method : POST ,
+    body : { userId : mongoId }
+    Description : This route will return chat if already exist , if not then it will create chat and then return new chat 
+
+2) Get My Chats (done)
+    Route : /api/chat/my 
+    Method : GET 
+    this route will return logged in user chats 
+3) Delete Chat (done)
+    Route : /api/chat/:chatId 
+    Method : DELETE 
+4) Get Single Chat (done)
+    Route : /api/chat/single-chat 
+    body : { userId : mongoId }
+    Method : GET 
+    
+
+=================
+    MESSAGES 
+=================
+1) Send Message (done)
+    Route : /api/message
+    body : {
+        chat : mongoId (chatId) ,
+        type : message Type (1 = text only , 2 = image only , 3 = text + image),
+        text : String ,
+        image : base64String,
+    } 
+    Method : POST 
+
+2) Get Single Chat Messages (done)
+    Route : /api/message/:chatId
+    Method : GET 
+    this route will return all the messages of a chat 
+
+    buy songs , buy beat , buy ticket (done)
+    fcm token update (done)
+
+
+======================
+    DOWNLOAD SONG 
+======================
+1) Create Download Song (done)
+    Route : /api/download-song 
+    body : { song : mongoId } ,
+    Method : POST 
+2) Get My Download Songs (done)(with Pagination)
+    Route : /api/download-song 
+    Method : GET 
+3) Delete Song From Download (done)
+    Route : /api/download-song/:downloadId 
+    Method : DELETE
+
+
+======================
+    DOWNLOAD BEAT 
+======================
+1) Create Download Beat (done)
+    Route : /api/download-beat 
+    body : { beat : mongoId } ,
+    Method : POST 
+2) Get My Download beats (done)(with Pagination)
+    Route : /api/download-beat 
+    Method : GET 
+3) Delete beat From Download (done)
+    Route : /api/download-beat/:downloadId 
+    Method : DELETE
+
+=======================
+    PACKAGES
+=======================
+1) Create Package (done)
+    Route : /api/package 
+    Method : POST ,
+    body : { postman }
+2) Get All Packages (done)
+    Route : /api/package 
+    Method : GET ,
+3) Update Package (done)
+    Route : /api/package/:id 
+    Method : PUT ,
+4) Get Single Package (done)
+    Route : /api/package/:id 
+    Method : GET ,
+5) Delete Package (done)
+    Route : /api/package/:id 
+    Method : DELETE 
+
+======================
+    SUBSCRIPTIONS
+======================
+1) Create Subsriptions (done)
+    Route : /api/subscription
+    Method : POST ,
+    Body : { packageId : mongoId }
+    Description : user can update hi subscription 
+2) Get My Subscriptions (done)
+    Route : /api/subscription/my
+    Method : GET ,
+3) Get All Subscriptions (done)
+    Route : /api/subscription/all 
+    Method : GET 
+
+
+=======================
+    BEATS CATEGORY
+=======================
+1) Create Beat Category (done)
+    Route : /api/beat-category 
+    Method : POST ,
+    body : { name : String }
+2) Get All Beat Categories (done)
+    Route : /api/beat-category 
+    Method : GET ,
+3) Update Beat Category (done)
+    Route : /api/beat-category/:id 
+    Method : PUT ,
+4) Get Single Beat Category (done)
+    Route : /api/beat-category/:id 
+    Method : GET ,
+5) Delete Beat Category (done)
+    Route : /api/beat-category/:id 
+    Method : DELETE 
+
+
+==================
+    TODAY TASK
+================== 
+    //done
+    Download Song , Download Beat 
+    liked songs , liked Beats ,
+    create Package ,
+    create Subscription 
+    month , 6month , year
+    after 10 uploads ask user to subscribe 
+    genre or mood ko separate krna h , subCategory wala concept khatam 
+    beats category (crud)  
+
+    //remaining 
+    
+    playlist or album me beats b add kr skty hein 
+    Album limit 20 , playlist 100
+    first page 5/5 each page , separate end point for pagination 
+
+    // separate
+    then add songs mean recently played or favorite songs 
+    first notification 
